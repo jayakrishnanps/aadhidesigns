@@ -104,6 +104,29 @@ nav {
     transform: translateY(-8px) rotate(-45deg);
 }
 
+.video-section {
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding: 0;
+    overflow: hidden;
+    background: transparent;
+}
+
+.video-section video {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+    margin: 0;
+    padding: 0;
+}
+
 .hero {
     background: linear-gradient(135deg, rgba(194, 147, 141, 0.9), rgba(212, 169, 163, 0.9)),
         url('assets/hero-bg.jpg') center/cover;
