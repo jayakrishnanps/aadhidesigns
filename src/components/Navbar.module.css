@@ -1,0 +1,232 @@
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    padding: 0.75rem 0;
+    transition: all 0.4s ease;
+    background: transparent;
+}
+
+.header.scrolled {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.06), 0 8px 32px rgba(0, 0, 0, 0.06);
+}
+
+.nav {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+}
+
+/* Logo */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    text-decoration: none;
+    flex-shrink: 0;
+}
+
+.logoImg {
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid rgba(194, 147, 141, 0.4);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.logo:hover .logoImg {
+    transform: scale(1.08) rotate(-3deg);
+    box-shadow: 0 4px 20px var(--brand-glow);
+}
+
+.logoText {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--white);
+    letter-spacing: 0.01em;
+    transition: color 0.4s ease;
+}
+
+.scrolled .logoText {
+    color: var(--dark);
+}
+
+/* Desktop nav links */
+.navLinks {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    gap: 0.25rem;
+}
+
+.navLink {
+    display: block;
+    padding: 0.5rem 0.9rem;
+    color: rgba(255, 255, 255, 0.9);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    border-radius: 99px;
+    transition: all 0.25s ease;
+    position: relative;
+}
+
+.scrolled .navLink {
+    color: var(--text-muted);
+}
+
+.navLink:hover {
+    background: rgba(255, 255, 255, 0.15);
+    color: var(--white);
+}
+
+.scrolled .navLink:hover {
+    background: var(--brand-glass);
+    color: var(--brand);
+}
+
+/* CTA pill in nav */
+.navCta {
+    display: block;
+    margin-left: 0.5rem;
+    padding: 0.55rem 1.4rem;
+    background: var(--white);
+    color: var(--brand) !important;
+    font-size: 0.875rem;
+    font-weight: 600;
+    border-radius: 99px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
+}
+
+.scrolled .navCta {
+    background: var(--brand);
+    color: var(--white) !important;
+}
+
+.navCta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Hamburger */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 6px;
+    border-radius: 8px;
+    transition: background 0.2s;
+}
+
+.hamburger:hover {
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.scrolled .hamburger:hover {
+    background: var(--brand-glass);
+}
+
+.hamburger span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: white;
+    border-radius: 99px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-origin: center;
+}
+
+.scrolled .hamburger span {
+    background: var(--text);
+}
+
+.hamburger.active span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+    transform: scaleX(0);
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .hamburger {
+        display: flex;
+    }
+
+    .navLinks {
+        position: absolute;
+        top: calc(100% + 0.75rem);
+        left: 1rem;
+        right: 1rem;
+        background: rgba(255, 255, 255, 0.97);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border-radius: var(--radius-lg);
+        flex-direction: column;
+        gap: 0;
+        padding: 0.75rem;
+        box-shadow: var(--shadow-lg);
+        border: 1px solid var(--border);
+        max-height: 0;
+        overflow: hidden;
+        opacity: 0;
+        pointer-events: none;
+        transition: max-height 0.35s ease, opacity 0.3s ease, padding 0.3s ease;
+    }
+
+    .navLinks.navOpen {
+        max-height: 500px;
+        opacity: 1;
+        pointer-events: all;
+    }
+
+    .navLink {
+        color: var(--text) !important;
+        padding: 0.85rem 1.25rem;
+        border-radius: var(--radius-sm);
+        font-size: 1rem;
+    }
+
+    .navLink:hover {
+        background: var(--brand-glass);
+        color: var(--brand) !important;
+    }
+
+    .navCta {
+        margin: 0.5rem 0.25rem 0.25rem;
+        text-align: center;
+        background: var(--brand) !important;
+        color: white !important;
+    }
+
+    .logoText {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .nav {
+        padding: 0 1rem;
+    }
+}
