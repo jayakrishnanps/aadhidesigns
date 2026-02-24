@@ -44,9 +44,6 @@ export default function Services() {
                             </div>
                             <h3 className={styles.cardTitle}>{title}</h3>
                             <p className={styles.cardDesc}>{description}</p>
-                            <a href="#contact" className={styles.cardLink}>
-                                Learn more →
-                            </a>
                         </div>
                     ))}
                 </div>

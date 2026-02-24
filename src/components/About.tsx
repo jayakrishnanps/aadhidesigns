@@ -1,12 +1,5 @@
 import styles from './About.module.css';
 
-const stats = [
-    { value: '15+', label: 'Years of Expertise' },
-    { value: '500+', label: 'Satisfied Clients' },
-    { value: '1000+', label: 'Garments Crafted' },
-    { value: '100%', label: 'Bespoke & Personal' },
-];
-
 export default function About() {
     return (
         <section id="about" className={styles.about}>
@@ -22,7 +15,7 @@ export default function About() {
                     </div>
                 </div>
 
-                {/* Right – copy + stats */}
+                {/* Right – copy */}
                 <div className={styles.right}>
                     <span className="section-label">Our Story</span>
                     <h2 className={styles.heading}>Where Craft Meets Passion</h2>
@@ -36,15 +29,6 @@ export default function About() {
                         We believe that clothing is personal. That&apos;s why every client is treated
                         as a collaborator — not just a customer.
                     </p>
-
-                    <div className={styles.statsGrid}>
-                        {stats.map(({ value, label }) => (
-                            <div key={label} className={styles.stat}>
-                                <strong className={styles.statValue}>{value}</strong>
-                                <span className={styles.statLabel}>{label}</span>
-                            </div>
-                        ))}
-                    </div>
                 </div>
             </div>
         </section>
