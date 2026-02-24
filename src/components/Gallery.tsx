@@ -5,7 +5,6 @@ const items = [
     { label: 'Formal Wear', span: '' },
     { label: 'Casual Elegance', span: '' },
     { label: 'Occasion Wear', span: 'wide' },
-    { label: 'Traditional Drapes', span: '' },
 ];
 
 export default function Gallery() {
@@ -15,7 +14,7 @@ export default function Gallery() {
                 <span className="section-label">Our Portfolio</span>
                 <h2 className={styles.heading}>Crafted with Love</h2>
                 <p className={styles.lead}>
-                    A glimpse into our atelier — where every piece is a work of art.
+                    A glimpse into our atelier, where every piece is a work of art.
                 </p>
 
                 <div className={styles.grid}>

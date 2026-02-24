@@ -23,6 +23,18 @@
     z-index: 0;
 }
 
+/* Noise grain texture overlay */
+.bg::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+    background-size: 200px;
+    pointer-events: none;
+    mix-blend-mode: overlay;
+    opacity: 0.5;
+}
+
 /* Blobs */
 .blob {
     position: absolute;
@@ -51,192 +63,135 @@
     animation: float 10s ease-in-out infinite 2s;
 }
 
-/* Content */
+/* Content wrapper */
 .inner {
     position: relative;
     z-index: 2;
     text-align: center;
-    max-width: 780px;
+    max-width: 720px;
     animation: fadeUp 0.9s ease both;
 }
 
+/* Badge pill */
 .badge {
     display: inline-block;
-    background: rgba(255, 255, 255, 0.12);
+    background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.22);
-    color: rgba(255, 255, 255, 0.9);
-    font-size: 0.78rem;
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: rgba(255, 255, 255, 0.88);
+    font-size: 0.72rem;
     font-weight: 600;
-    letter-spacing: 0.12em;
+    letter-spacing: 0.16em;
     text-transform: uppercase;
-    padding: 0.45rem 1.2rem;
+    padding: 0.5rem 1.35rem;
     border-radius: 99px;
-    margin-bottom: 2rem;
+    margin-bottom: 2.25rem;
     animation: fadeUp 0.9s ease 0.1s both;
 }
 
+/* Main heading */
 .heading {
     font-family: 'Playfair Display', serif;
-    font-size: clamp(3rem, 8vw, 6rem);
+    font-size: clamp(3.2rem, 9vw, 6.5rem);
     font-weight: 700;
-    line-height: 1.1;
+    line-height: 1.08;
     color: var(--white);
     margin-bottom: 1.5rem;
     animation: fadeUp 0.9s ease 0.2s both;
-    text-shadow: 0 4px 40px rgba(0, 0, 0, 0.3);
+    letter-spacing: -0.02em;
+    text-shadow: 0 4px 40px rgba(0, 0, 0, 0.25);
 }
 
 .heading em {
     font-style: italic;
     color: transparent;
-    background: linear-gradient(90deg, #f5d0cc, #ffffff, #e8b4af);
+    background: linear-gradient(100deg, #f5d0cc 0%, #ffffff 40%, #e8b4af 100%);
     background-size: 200% auto;
     -webkit-background-clip: text;
     background-clip: text;
     animation: shimmer 4s linear infinite;
+    display: block;
 }
 
+/* Subtext */
 .subtext {
-    font-size: clamp(1rem, 2vw, 1.2rem);
-    color: rgba(255, 255, 255, 0.78);
-    max-width: 560px;
-    margin: 0 auto 2.5rem;
-    line-height: 1.75;
+    font-size: clamp(1rem, 2.2vw, 1.15rem);
+    color: rgba(255, 255, 255, 0.72);
+    max-width: 520px;
+    margin: 0 auto 2.75rem;
+    line-height: 1.85;
     animation: fadeUp 0.9s ease 0.35s both;
+    font-weight: 300;
 }
 
-/* Buttons */
+/* CTA buttons */
 .actions {
     display: flex;
-    gap: 1rem;
+    gap: 0.875rem;
     justify-content: center;
     flex-wrap: wrap;
-    margin-bottom: 3.5rem;
     animation: fadeUp 0.9s ease 0.5s both;
 }
 
 .btnPrimary {
     display: inline-flex;
     align-items: center;
-    padding: 0.9rem 2.2rem;
+    gap: 0.5rem;
+    padding: 0.95rem 2.25rem;
     background: var(--white);
     color: var(--brand-dark);
     font-weight: 700;
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     border-radius: 99px;
     text-decoration: none;
-    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.18);
-    transition: all 0.3s ease;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, gap 0.25s ease;
     letter-spacing: 0.02em;
 }
 
 .btnPrimary:hover {
     transform: translateY(-3px);
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.25);
-    background: #f8f0ef;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.28);
+    gap: 0.75rem;
+}
+
+.arrow {
+    display: inline-block;
+    transition: transform 0.25s ease;
+}
+
+.btnPrimary:hover .arrow {
+    transform: translateX(3px);
 }
 
 .btnOutline {
     display: inline-flex;
     align-items: center;
-    padding: 0.9rem 2.2rem;
+    padding: 0.95rem 2.25rem;
     background: transparent;
     color: var(--white);
     font-weight: 600;
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     border-radius: 99px;
-    border: 1.5px solid rgba(255, 255, 255, 0.4);
+    border: 1.5px solid rgba(255, 255, 255, 0.35);
     text-decoration: none;
     transition: all 0.3s ease;
     backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
     letter-spacing: 0.02em;
 }
 
 .btnOutline:hover {
-    background: rgba(255, 255, 255, 0.12);
-    border-color: rgba(255, 255, 255, 0.7);
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.65);
     transform: translateY(-3px);
 }
 
-/* Stats */
-.stats {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 2rem;
-    animation: fadeUp 0.9s ease 0.65s both;
-}
-
-.stat {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.2rem;
-}
-
-.stat strong {
-    font-family: 'Playfair Display', serif;
-    font-size: 2rem;
-    font-weight: 700;
-    color: var(--white);
-    line-height: 1;
-}
-
-.stat span {
-    font-size: 0.75rem;
-    color: rgba(255, 255, 255, 0.6);
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-}
-
-.divider {
-    width: 1px;
-    height: 40px;
-    background: rgba(255, 255, 255, 0.2);
-}
-
-/* Scroll cue */
-.scrollCue {
-    position: absolute;
-    bottom: 2rem;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 2;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.4rem;
-    color: rgba(255, 255, 255, 0.5);
-    font-size: 0.7rem;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    animation: fadeIn 1.2s ease 1.2s both;
-}
-
-.scrollLine {
-    width: 1px;
-    height: 40px;
-    background: linear-gradient(to bottom, transparent, rgba(255, 255, 255, 0.5));
-    animation: float 2s ease-in-out infinite;
-}
-
-/* Mobile */
+/* ── Mobile ── */
 @media (max-width: 768px) {
     .hero {
-        padding: 6rem 1.5rem 4rem;
-    }
-
-    .stats {
-        gap: 1.25rem;
-    }
-
-    .stat strong {
-        font-size: 1.5rem;
-    }
-
-    .scrollCue {
-        display: none;
+        padding: 6.5rem 1.5rem 4.5rem;
     }
 
     .blob1 {
@@ -248,9 +203,17 @@
         width: 220px;
         height: 220px;
     }
+
+    .heading em {
+        display: inline;
+    }
 }
 
 @media (max-width: 480px) {
+    .hero {
+        padding: 6rem 1.25rem 4rem;
+    }
+
     .actions {
         flex-direction: column;
         align-items: center;
@@ -259,15 +222,7 @@
     .btnPrimary,
     .btnOutline {
         width: 100%;
-        max-width: 280px;
+        max-width: 300px;
         justify-content: center;
-    }
-
-    .stats {
-        gap: 0.75rem;
-    }
-
-    .divider {
-        height: 28px;
     }
 }

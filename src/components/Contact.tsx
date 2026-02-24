@@ -73,11 +73,11 @@ export default function Contact() {
                             <div className={styles.row}>
                                 <div className={styles.field}>
                                     <label htmlFor="name">Full Name</label>
-                                    <input id="name" name="name" type="text" placeholder="Jane Doe" required value={form.name} onChange={handleChange} />
+                                    <input id="name" name="name" type="text" required value={form.name} onChange={handleChange} />
                                 </div>
                                 <div className={styles.field}>
                                     <label htmlFor="phone">Phone (optional)</label>
-                                    <input id="phone" name="phone" type="tel" placeholder="+91 98765 43210" value={form.phone} onChange={handleChange} />
+                                    <input id="phone" name="phone" type="tel" value={form.phone} onChange={handleChange} />
                                 </div>
                             </div>
                             <div className={styles.field}>

@@ -36,11 +36,18 @@
     line-height: 1.8;
 }
 
-/* Desktop – masonry-style grid */
+/*
+  Desktop: 3 cols, 2 rows
+  ┌──────────┬──────────┬──────────┐
+  │ Bridal   │  Formal  │ Casual   │
+  │ (tall)   ├──────────┴──────────┤
+  │          │  Occasion (wide)    │
+  └──────────┴─────────────────────┘
+*/
 .grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: 220px 220px;
+    grid-template-rows: 230px 230px;
     gap: 1rem;
 }
 
@@ -49,9 +56,8 @@
     overflow: hidden;
     position: relative;
     cursor: pointer;
-    /* Explicit min-height so background always shows on all viewports */
     min-height: 180px;
-    transition: transform 0.3s ease;
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
 }
 
 .item:nth-child(1) {
@@ -70,10 +76,6 @@
     background: linear-gradient(145deg, #c2938d, #e8c5be);
 }
 
-.item:nth-child(5) {
-    background: linear-gradient(145deg, #7a4540, #d4a9a3);
-}
-
 .tall {
     grid-row: span 2;
 }
@@ -82,14 +84,19 @@
     grid-column: span 2;
 }
 
-/* Hover overlay */
+.item:hover {
+    transform: scale(0.982);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+}
+
+/* Overlay with label */
 .itemOverlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.72) 0%, transparent 55%);
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.75) 0%, transparent 55%);
     display: flex;
     align-items: flex-end;
-    padding: 1.25rem;
+    padding: 1.5rem;
     opacity: 0;
     transition: opacity 0.35s ease;
 }
@@ -98,16 +105,13 @@
     opacity: 1;
 }
 
-.item:hover {
-    transform: scale(0.985);
-}
-
 .itemLabel {
     color: white;
     font-family: 'Playfair Display', serif;
-    font-size: 1.05rem;
+    font-size: 1.1rem;
     font-weight: 600;
     letter-spacing: 0.02em;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
 }
 
 .note {
@@ -117,13 +121,12 @@
     letter-spacing: 0.06em;
 }
 
-/* ── Tablet: 2-column grid, fixed heights ── */
+/* ── Tablet ── */
 @media (max-width: 900px) {
     .grid {
         grid-template-columns: 1fr 1fr;
         grid-template-rows: none;
-        grid-auto-rows: 200px;
-        /* explicit row height so items never collapse */
+        grid-auto-rows: 220px;
     }
 
     .tall {
@@ -134,13 +137,12 @@
         grid-column: span 2;
     }
 
-    /* Always show the label on touch devices */
     .itemOverlay {
         opacity: 1;
     }
 }
 
-/* ── Mobile: single column, fixed heights ── */
+/* ── Mobile ── */
 @media (max-width: 550px) {
     .gallery {
         padding: 5rem 1.25rem;
@@ -155,7 +157,6 @@
         grid-row: span 1;
     }
 
-    /* reset spans so nothing bleeds */
     .wide {
         grid-column: span 1;
     }

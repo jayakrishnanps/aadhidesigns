@@ -5,7 +5,7 @@ const services = [
         icon: '✂️',
         title: 'Custom Tailoring',
         description:
-            'Every stitch tells your story. We take your exact measurements and craft garments that fit like a second skin — because you deserve nothing less than perfect.',
+            'Every stitch tells your story. We take your exact measurements and craft garments that fit like a second skin, because you deserve nothing less than perfect.',
         tag: 'Most Popular',
     },
     {

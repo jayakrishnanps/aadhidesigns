@@ -11,18 +11,18 @@ export default function Hero() {
                 <span className={styles.badge}>✦ Premium Tailoring Studio</span>
 
                 <h1 className={styles.heading}>
-                    Crafted for <br />
+                    Crafted for{' '}
                     <em>Your Story</em>
                 </h1>
 
                 <p className={styles.subtext}>
-                    Aadhi Designs blends artisan craftsmanship with modern style —
+                    Aadhi Designs blends artisan craftsmanship with modern style,
                     creating garments that fit your body and express your identity.
                 </p>
 
                 <div className={styles.actions}>
                     <a href="#services" className={styles.btnPrimary}>
-                        Explore Services
+                        Explore Services <span className={styles.arrow}>→</span>
                     </a>
                     <a href="#contact" className={styles.btnOutline}>
                         Book a Consultation

@@ -20,14 +20,14 @@ export default function About() {
                     <span className="section-label">Our Story</span>
                     <h2 className={styles.heading}>Where Craft Meets Passion</h2>
                     <p className={styles.body}>
-                        Aadhi Designs was born from a deep love for the art of tailoring. For over
-                        fifteen years we have been creating garments that celebrate the people who
-                        wear them — each one shaped by conversations, measurements, and the tiny
+                        Aadhi Designs was born from a deep love for the art of tailoring.
+                        We create garments that celebrate the people who wear them,
+                        each one shaped by conversations, measurements, and the tiny
                         details that make a perfect fit.
                     </p>
                     <p className={styles.body}>
-                        We believe that clothing is personal. That&apos;s why every client is treated
-                        as a collaborator — not just a customer.
+                        We believe that clothing is personal. Every client is treated
+                        as a collaborator, not just a customer.
                     </p>
                 </div>
             </div>
