@@ -89,36 +89,20 @@
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
 }
 
-/* Overlay with label */
-.itemOverlay {
+.img {
     position: absolute;
     inset: 0;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.75) 0%, transparent 55%);
-    display: flex;
-    align-items: flex-end;
-    padding: 1.5rem;
-    opacity: 0;
-    transition: opacity 0.35s ease;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    /* keep full image visible on gradient BG */
+    padding: 1rem;
+    /* small breathing room around transparent images */
+    transition: transform 0.35s ease;
 }
 
-.item:hover .itemOverlay {
-    opacity: 1;
-}
-
-.itemLabel {
-    color: white;
-    font-family: 'Playfair Display', serif;
-    font-size: 1.1rem;
-    font-weight: 600;
-    letter-spacing: 0.02em;
-    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
-}
-
-.note {
-    margin-top: 2.5rem;
-    color: rgba(255, 255, 255, 0.3);
-    font-size: 0.8rem;
-    letter-spacing: 0.06em;
+.item:hover .img {
+    transform: scale(1.04);
 }
 
 /* ── Tablet ── */

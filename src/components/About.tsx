@@ -1,17 +1,26 @@
 import styles from './About.module.css';
 
+const VIDEO_URL = 'https://res.cloudinary.com/dfxb1wthw/video/upload/v1772031662/grok_video_2026-02-25-14-40-03_fq9rcr.mp4';
+
 export default function About() {
     return (
         <section id="about" className={styles.about}>
             <div className={styles.inner}>
 
-                {/* Left – brand block */}
+                {/* Left – brand block with video */}
                 <div className={styles.left}>
                     <div className={styles.imgCard}>
-                        <div className={styles.imgPlaceholder} aria-hidden="true">
-                            <span className={styles.monogram}>AD</span>
+                        <div className={styles.imgPlaceholder}>
+                            <video
+                                autoPlay
+                                muted
+                                loop
+                                playsInline
+                                className={styles.brandVideo}
+                            >
+                                <source src={VIDEO_URL} type="video/mp4" />
+                            </video>
                         </div>
-                        <div className={styles.floatingTag}>Est. 2009</div>
                     </div>
                 </div>
 

@@ -1,11 +1,13 @@
 import styles from './Gallery.module.css';
 
 const items = [
-    { label: 'Bridal Collection', span: 'tall' },
-    { label: 'Formal Wear', span: '' },
-    { label: 'Casual Elegance', span: '' },
-    { label: 'Occasion Wear', span: 'wide' },
+    'https://res.cloudinary.com/dfxb1wthw/image/upload/v1772033095/Untitled_lfu9at.png',
+    'https://res.cloudinary.com/dfxb1wthw/image/upload/v1772033095/Untitled_1_qinj6f.png',
+    'https://res.cloudinary.com/dfxb1wthw/image/upload/v1772033095/Untitled_3_zb9b0c.png',
+    'https://res.cloudinary.com/dfxb1wthw/image/upload/v1772033095/Untitled_2_hkcfwq.png',
 ];
+
+const spans = ['tall', '', '', 'wide'];
 
 export default function Gallery() {
     return (
@@ -18,21 +20,20 @@ export default function Gallery() {
                 </p>
 
                 <div className={styles.grid}>
-                    {items.map(({ label, span }) => (
+                    {items.map((src, i) => (
                         <div
-                            key={label}
-                            className={`${styles.item} ${span === 'tall' ? styles.tall : ''} ${span === 'wide' ? styles.wide : ''}`}
+                            key={i}
+                            className={`${styles.item} ${spans[i] === 'tall' ? styles.tall : ''} ${spans[i] === 'wide' ? styles.wide : ''}`}
                         >
-                            <div className={styles.itemOverlay}>
-                                <span className={styles.itemLabel}>{label}</span>
-                            </div>
+                            {/* eslint-disable-next-line @next/next/no-img-element */}
+                            <img
+                                src={src}
+                                alt={`Gallery image ${i + 1}`}
+                                className={styles.img}
+                            />
                         </div>
                     ))}
                 </div>
-
-                <p className={styles.note}>
-                    ✦ &nbsp;Actual work photos coming soon — follow us for previews
-                </p>
             </div>
         </section>
     );

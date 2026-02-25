@@ -64,34 +64,14 @@
     background-size: 40px 40px;
 }
 
-.monogram {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(4rem, 12vw, 9rem);
-    font-weight: 700;
-    color: rgba(255, 255, 255, 0.13);
-    letter-spacing: -0.04em;
-    user-select: none;
-    position: relative;
-    z-index: 1;
-    animation: float 6s ease-in-out infinite;
-}
-
-.floatingTag {
+.brandVideo {
     position: absolute;
-    bottom: -1.5rem;
-    right: -1.5rem;
-    background: var(--white);
-    border: 1px solid rgba(194, 147, 141, 0.2);
-    border-radius: 18px;
-    padding: 1rem 1.5rem;
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
-    font-family: 'Playfair Display', serif;
-    font-size: 1.15rem;
-    font-weight: 700;
-    color: var(--brand);
-    letter-spacing: 0.01em;
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 28px;
+    z-index: 1;
 }
 
 /* ── Right copy ── */
@@ -124,20 +104,10 @@
         aspect-ratio: 16/7;
     }
 
-    .floatingTag {
-        bottom: -1rem;
-        right: 1rem;
-    }
 }
 
 @media (max-width: 480px) {
     .about {
         padding: 5rem 1.25rem;
-    }
-
-    .floatingTag {
-        right: 0.75rem;
-        font-size: 1rem;
-        padding: 0.8rem 1.25rem;
     }
 }
