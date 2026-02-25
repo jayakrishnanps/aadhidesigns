@@ -166,6 +166,15 @@
     min-height: 100px;
 }
 
+.errorMsg {
+    font-size: 0.85rem;
+    color: #c0392b;
+    background: #fdf0ef;
+    border: 1px solid #f5c6c2;
+    border-radius: 8px;
+    padding: 0.65rem 1rem;
+}
+
 .submitBtn {
     width: 100%;
     padding: 1.05rem;
