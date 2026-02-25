@@ -100,8 +100,10 @@
         gap: 3rem;
     }
 
-    .imgPlaceholder {
-        aspect-ratio: 16/9;
+    /* Keep the portrait 4/5 ratio from desktop — gives ~488px height on a 390px phone */
+    /* Switch to contain so the full video frame is always visible without cropping */
+    .brandVideo {
+        object-fit: contain;
     }
 
 }
